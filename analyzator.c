@@ -9,8 +9,9 @@
 #include <time.h>
 #include <ctype.h>
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]){
+    int f;
 
+    f = open ( f , O_RDONLY);
     return 0;
 }

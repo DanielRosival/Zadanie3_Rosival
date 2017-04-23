@@ -11,9 +11,8 @@
 
 #define dolna_hranica 10
 
-int main(int argc, char const *argv[])
-{
-    char n;
+int main(int argc, char const *argv[]){
+    
     unsigned char l;
     int f,i,j;
     float number;
@@ -37,9 +36,11 @@ int main(int argc, char const *argv[])
     
     for (i = 0; i < (*argv[2]); ++i){
         l = rand() % 10 + ( dolna_hranica + 1 );
+        printf("%c\n", l);
         write ( f, &l, sizeof(char) * 1 );
         for (j = 0; j < l; ++j){
             number = (float) rand() / (float) RAND_MAX;
+            printf("number\n");
             write ( f, &number, sizeof(float) * 1 );
         }
     }
