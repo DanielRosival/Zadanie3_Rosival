@@ -14,7 +14,7 @@
 int main(int argc, char const *argv[]){
     
     unsigned char l;
-    int f,i,j;
+    int f,i,j,n;
     float number;
     
     if ( argc > 3 ){
@@ -31,16 +31,19 @@ int main(int argc, char const *argv[]){
     if ( f < 0 ){
         return 3;
     }
+
+    n = atoi ( argv[2] );
+    printf( " n = %d\n", n );
     
     srand ( time( NULL ) );
     
-    for (i = 0; i < (*argv[2]); ++i){
+    for (i = 0; i < n; i++){
         l = rand() % 10 + ( dolna_hranica + 1 );
-        printf("%c\n", l);
+        printf("%d\n", l);
         write ( f, &l, sizeof(char) * 1 );
-        for (j = 0; j < l; ++j){
+        for (j = 0; j < l; j++){
             number = (float) rand() / (float) RAND_MAX;
-            printf("number\n");
+            printf("%f\n",number);
             write ( f, &number, sizeof(float) * 1 );
         }
     }

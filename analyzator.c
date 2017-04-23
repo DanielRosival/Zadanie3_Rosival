@@ -12,6 +12,11 @@
 int main(int argc, char const *argv[]){
     int f;
 
-    f = open ( f , O_RDONLY);
+    f = open ( argv[1] , O_RDONLY);
+    if ( f < 0 ){
+        return 1;
+    }
+    
+
     return 0;
 }
