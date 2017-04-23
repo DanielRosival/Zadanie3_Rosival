@@ -16,7 +16,6 @@ int main(int argc, char const *argv[]){
     int f,counter = 0,i,test;
     float **pointer = NULL, *bufF = NULL, average = 0,averageBIG = 0;
     unsigned char n, *bufC = NULL;
-    off_t end_position;
     
     if ( argc > EXPEC_NUMBER_OF_ARGUMENTS ) {
         printf("Too many arguments!\n");
