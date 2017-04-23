@@ -10,6 +10,7 @@
 #include <ctype.h>
 
 #define dolna_hranica 10
+#define EXPEC_NUMBER_OF_ARGUMENTS 3
 
 int main(int argc, char const *argv[]){
     
@@ -17,12 +18,12 @@ int main(int argc, char const *argv[]){
     int f,i,j,n;
     float number;
     
-    if ( argc > 3 ){
+    if ( argc > EXPEC_NUMBER_OF_ARGUMENTS ){
         printf("Too much arguments.\n");
         return 1;
     }
 
-    if ( argc < 3 ){
+    if ( argc < EXPEC_NUMBER_OF_ARGUMENTS ){
     	printf("Not enough arguments.\n");
     	return 2;
     }
