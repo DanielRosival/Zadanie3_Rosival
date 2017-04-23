@@ -35,13 +35,13 @@ int main(int argc, char const *argv[]){
         return 1;
     }
 
-    end_position = lseek ( f, 0, SEEK_END);
+    lseek (f,0,SEEK_SET);
     test = read ( f,  bufC, 1 * sizeof(char));
     printf("%d\n", test);
     // n = *bufC;
     // printf("%c\n", n);
     
-    // while ( (lseek( f, 0, SEEK_CUR )) != end_position ){
+    // while ( (lseek( f, 0, SEEK_CUR )) != lseek ( f, 0, SEEK_END); ){
     //     read ( f,  bufC, 1 * sizeof(char));
     //     n = *bufC;
     //     printf("%c\n", n);
