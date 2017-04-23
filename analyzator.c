@@ -32,10 +32,10 @@ int main(int argc, char const *argv[]){
         return 1;
     }
     
-    while ( f != EOF){
+    while ( lseek( f, 0, SEEK_CUR ) != EOF){
         read ( f,  bufC, 1 * sizeof(char));
         n = *bufC;
-        pointer = realloc ( pointer, (4 * counter ) );
+        pointer = realloc ( pointer, (4 * ( counter + 1 ) ) );
         *pointer =  malloc ( sizeof(float) * n );
         for (i = 0; i < n; ++i){
             read ( f, bufF, 1 * sizeof(float));
