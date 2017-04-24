@@ -80,6 +80,7 @@ int main(int argc, char const *argv[]){
 
     free(pointer);
     free(dlzky);
+    free(numbers);
     
     
     
