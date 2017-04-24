@@ -51,7 +51,7 @@ int main(int argc, char const *argv[]){
     
     if ( close (f) != 0) {
     	printf("FAILED\n");
-    	printf("%s\n", strerror(errno));
+    	return 4;
     }
 
     return 0;

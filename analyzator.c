@@ -13,7 +13,7 @@
 
 int main(int argc, char const *argv[]){
     int f,counter = 0,i,j;
-    float **pointer = NULL, average = 0, averageBIG = 0;
+    float **pointer = NULL, *numbers = NULL, average = 0, averageBIG = 0;
     unsigned char n, *dlzky = NULL;
     off_t end_position;
     
@@ -35,6 +35,7 @@ int main(int argc, char const *argv[]){
 
     pointer = malloc ( sizeof ( pointer ) );
     dlzky = malloc ( sizeof ( char ) );
+    numbers = malloc ( sizeof ( float ) );
 
     end_position = lseek ( f, 0, SEEK_END );
     lseek ( f, 0, SEEK_SET );
@@ -49,26 +50,28 @@ int main(int argc, char const *argv[]){
         pointer[counter] = malloc ( sizeof ( float ) * dlzky[counter] );
 
         n = dlzky[counter];
+        numbers = malloc ( sizeof ( float ) * n);
+        pointer[counter] = numbers;
+
         printf("%d\n",n );
         for (i = 0; i < n; i++){
-            read ( f, &pointer[i], sizeof(float));  
+            read ( f, &numbers[i], sizeof(float));
+            average += pointer[counter][i];   
         }
-        average = average / n;
+        average = average / (float) n;
         counter++;  
     }
 
-    if ( close (f) == -1){
+    if ( close (f) != 0){
         printf("Closing failed\n");
         return 3;
     }
 
+    averageBIG = average / counter;
     printf("Pocet postupnosti je: %d\n", counter);
-    printf("Aritmeticky priemer priemerov je:%f\n", averageBIG);
+    printf("Aritmeticky priemer priemerov je: %f\n", averageBIG);
     for (i = 0; i < counter; i++){
-        printf("test\n");
-        printf("%d\n", i);
-        printf("%d. postupnost ma %d clenov", i+1, dlzky[i]);
-
+        printf("%d. postupnost ma %d clenov a su to: ", i+1, dlzky[i]);
         for ( j = 0; j < dlzky[i]; j++ ){
             printf("%f ", pointer[i][j] );
         }
